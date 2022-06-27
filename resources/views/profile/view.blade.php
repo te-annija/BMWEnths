@@ -93,7 +93,7 @@
                         <p class="mt-2">Updated: {{$post->updated_at}}</p>
                     @endif
                     <p>
-                        <a href="{{route('home')}}" class="btn btn-outline-dark btn-lg m-2">Open post</a>
+                        <a href="{{'/post/'.$post->id}}" class="btn btn-outline-dark btn-lg m-2">Open post</a>
                     </p>
 
                 </div>

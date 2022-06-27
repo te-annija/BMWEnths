@@ -15,6 +15,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ action([App\Http\Controllers\ProfilesController::class, 'show'], Auth::user()->id) }}">{{ __('Profile') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ action([App\Http\Controllers\PostsController::class, 'index'])}}">{{ __('Blog') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

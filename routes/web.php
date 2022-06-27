@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfilesController;
 use App\Models\Event;
 use Illuminate\Support\Facades\Auth;
@@ -25,4 +26,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('profile', ProfilesController::class, ['except' => ['index','create', 'store']]);
+Route::resource('post', PostsController::class, ['except' => []]);
 
