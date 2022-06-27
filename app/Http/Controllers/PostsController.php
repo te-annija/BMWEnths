@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,10 +21,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-   
+
         $posts = Post::all();
         return view('blog.index')
-        ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
+        ->with('posts', Post::orderBy('updated_at', 'DESC')->get())
+        ->with('comments', Comment::orderBy('created_at', 'DESC')->get());
     }
 
     /**
@@ -80,7 +82,8 @@ class PostsController extends Controller
 
         if (Post::find($id)) {
             return view('blog.show')
-            ->with('post', Post::where('id', $id)->first());
+            ->with('post', Post::where('id', $id)->first())
+            ->with('comments', Comment::orderBy('created_at', 'DESC')->where('post_id', $post->id)->get());;
         } else return redirect('/');
     }
 
