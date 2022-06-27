@@ -16,15 +16,16 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('BMW_model');
-            $table->string('body_type');
-            $table->char('year', 4);
-            $table->string('engine');
-            $table->smallInteger('power');
+            $table->string('BMW_model')->nullable();
+            $table->string('body_type')->nullable();
+            $table->char('year', 4)->nullable();
+            $table->string('engine')->nullable();
+            $table->smallInteger('power')->nullable();
             $table->longText('description')->nullable();
-            $table->string('image_path')->nullable();
+            $table->string('image_path')->default('default_img.jpg');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
+
     }
 
     /**

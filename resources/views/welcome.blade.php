@@ -2,7 +2,7 @@
 @section('header')
     <style>
       .background-image {
-        background-image: url(../../images/welcome.jpg);
+        background-image: url(<?php echo asset('images/welcome.jpg') ?>);
         height: 100vh;
         background-position: center center;
         background-repeat: no-repeat;
