@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\EventsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfilesController;
 use App\Models\Event;
@@ -30,3 +31,6 @@ Route::resource('profile', ProfilesController::class, ['except' => ['index','cre
 Route::resource('post', PostsController::class);
 Route::resource('comment', CommentsController::class, ['only' => ['store', 'destroy']]);
 
+Route::post('/event/{id}/participation', [App\Http\Controllers\EventsController::class, 'going']);
+Route::delete('/event/{id}/cancel', [App\Http\Controllers\EventsController::class, 'notgoing']);
+Route::resource('event', EventsController::class);

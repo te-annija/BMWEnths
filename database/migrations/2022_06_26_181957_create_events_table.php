@@ -22,8 +22,8 @@ return new class extends Migration
             $table->date('date')->nullable();
             $table->longText('description');
             $table->smallInteger('registred')->default(0);
-            $table->tinyInteger('status');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->tinyInteger('status')->default(1);
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
         });
     }
 

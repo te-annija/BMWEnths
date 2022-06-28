@@ -84,7 +84,7 @@ class PostsController extends Controller
             return view('blog.show')
             ->with('post', Post::where('id', $id)->first())
             ->with('comments', Comment::orderBy('created_at', 'DESC')->where('post_id', $post->id)->get());;
-        } else return redirect('/');
+        } else return redirect('/post');
     }
 
 
@@ -102,7 +102,7 @@ class PostsController extends Controller
         if (Post::find($id)) {
             return view('blog.edit')
             ->with('post', Post::where('id', $id)->first());
-        } else return redirect('/');
+        } else return redirect('/post');
     }
 
     /**
@@ -134,7 +134,7 @@ class PostsController extends Controller
             'description' => $request->input('description'),
             'file_path' => $newImageName,
         ]);
-        return redirect('/post/'.$id)->with('message', 'Your post has been added!');
+        return redirect('/post/'.$id)->with('message', 'Your post has been updated!');
     }
 
     /**

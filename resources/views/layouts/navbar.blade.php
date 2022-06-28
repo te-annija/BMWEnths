@@ -12,12 +12,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ action([App\Http\Controllers\ProfilesController::class, 'show'], Auth::user()->id) }}">{{ __('Profile') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ action([App\Http\Controllers\PostsController::class, 'index'])}}">{{ __('Blog') }}</a>
-                        </li>
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ action([App\Http\Controllers\ProfilesController::class, 'show'], Auth::user()->id) }}">{{ __('Profile') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                 <a class="nav-link" href="{{ action([App\Http\Controllers\PostsController::class, 'index'])}}">{{ __('Blog') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                 <a class="nav-link" href="{{ action([App\Http\Controllers\EventsController::class, 'index'])}}">{{ __('Events') }}</a>
+                            </li>
+                        @endauth
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
