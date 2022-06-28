@@ -18,8 +18,8 @@ class UserTableSeeder extends Seeder
     {
         User::truncate();
         User::create(array(
-            'name' => 'Administrator',
-            'email' => 'admin@bmw.test',
+            'name' => 'Organizer',
+            'email' => 'org@bmw.test',
             'password' => Hash::make('password'),
             'role' => 1,
         ));
@@ -35,6 +35,12 @@ class UserTableSeeder extends Seeder
             'password' => Hash::make('password'),
             'role' => 0,
         ));
-        
+        User::create(array(
+            'name' => 'Administrator',
+            'email' => 'admin@bmw.test',
+            'password' => Hash::make('password'),
+            'role' => 100,
+        ));
+
     }
 }

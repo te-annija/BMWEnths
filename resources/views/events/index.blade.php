@@ -58,7 +58,7 @@
                                 <h3 class="text-danger"> Event has ended! </h3>
                             @endif
                             <p class="border-bottom p-2"> {{$event->description}}</p>
-                            <div class="d-flex justify-content-end align-items-end w-100">
+                            <div class="d-flex justify-content-end align-items-end w-100 flex-wrap">
                                 @can('view', $event)
                                     <a href="/event/{{$event->id}}" class="btn btn-outline-info btn-lg m-2" >Stats </a>
                                 @endcan

@@ -25,12 +25,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware'=> ['auth', 'active_user']],function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('profile', ProfilesController::class, ['except' => ['index','create', 'store']]);
-Route::resource('post', PostsController::class);
-Route::resource('comment', CommentsController::class, ['only' => ['store', 'destroy']]);
+    Route::resource('profile', ProfilesController::class, ['except' => ['index','create', 'store']]);
+    Route::resource('post', PostsController::class);
+    Route::resource('comment', CommentsController::class, ['only' => ['store', 'destroy']]);
 
-Route::post('/event/{id}/participation', [App\Http\Controllers\EventsController::class, 'going']);
-Route::delete('/event/{id}/cancel', [App\Http\Controllers\EventsController::class, 'notgoing']);
-Route::resource('event', EventsController::class);
+    Route::post('/event/{id}/participation', [App\Http\Controllers\EventsController::class, 'going']);
+    Route::delete('/event/{id}/cancel', [App\Http\Controllers\EventsController::class, 'notgoing']);
+    Route::resource('event', EventsController::class);
+
+    Route::post('/profile/{id}/block', [App\Http\Controllers\AdminController::class, 'block']);
+    Route::post('/profile/{id}/unblock', [App\Http\Controllers\AdminController::class, 'unblock']);
+    Route::get('/blocked', [App\Http\Controllers\AdminController::class, 'index']);
+
+});

@@ -11,7 +11,7 @@
 
                 <h4 class="text-light fw-bold mb-3 "> A CAR MOVES YOU. A BMW TOUCHES YOU.</h4>
                 <div class="d-flex justify-content-center">
-                @can('create', $event)
+                @can('create', App\Models\Event::class)
                 <a href="/event/create" class="btn btn-outline-light btn-lg m-2"> Create an Event </a>
                 @endcan
                 @can('update', $event)

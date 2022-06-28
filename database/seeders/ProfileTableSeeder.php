@@ -44,6 +44,16 @@ class ProfileTableSeeder extends Seeder
             'image_path' =>'user2_img.jpg',
             'user_id' => 3,
         ));
+        Profile::create(array(
+            'BMW_model' => 'e46 323i',
+            'body_type' => 'Sedan',
+            'year' => '1995',
+            'engine' => '2494',
+            'power' => '125', //kw
+            'description' => 'e36 car lover',
+            'image_path' => 'admin_img.jpg',
+            'user_id' => 4,
+        ));
 
     }
 }

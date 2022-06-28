@@ -35,7 +35,7 @@ class ProfilePolicy
      */
     public function update(User $user, Profile $profile)
     {
-        return $user->id === $profile->user_id;
+        return $user->id === $profile->user_id || $user->role === 100;
         //return true;
     }
 
@@ -48,7 +48,16 @@ class ProfilePolicy
      */
     public function delete(User $user, Profile $profile)
     {
-        return $user->id === $profile->user_id;
+        return $user->id === $profile->user_id || $user->role === 100;
     }
 
+    public function block(User $user)
+    {
+        return $user->role === 100;
+    }
+
+    public function viewBlocked(User $user)
+    {
+        return $user->role === 100 || $user->role === 1;
+    }
 }

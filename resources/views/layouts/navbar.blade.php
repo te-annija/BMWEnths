@@ -14,14 +14,12 @@
                     <ul class="navbar-nav me-auto">
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ action([App\Http\Controllers\ProfilesController::class, 'show'], Auth::user()->id) }}">{{ __('Profile') }}</a>
-                            </li>
-                            <li class="nav-item">
                                  <a class="nav-link" href="{{ action([App\Http\Controllers\PostsController::class, 'index'])}}">{{ __('Blog') }}</a>
                             </li>
                             <li class="nav-item">
                                  <a class="nav-link" href="{{ action([App\Http\Controllers\EventsController::class, 'index'])}}">{{ __('Events') }}</a>
                             </li>
+
                         @endauth
 
                     </ul>
@@ -48,6 +46,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ action([App\Http\Controllers\ProfilesController::class, 'show'], Auth::user()->id) }}">{{ __('Profile') }}</a>
+                                    @can('viewBlocked', App\Models\Profile::class)
+                                        <a class="dropdown-item" href="{{ action([App\Http\Controllers\AdminController::class, 'index'])}}">{{ __('Blocked Users') }}</a>
+                                    @endcan
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

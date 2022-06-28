@@ -30,7 +30,7 @@ class EventPolicy
      */
     public function view(User $user, Event $event)
     {
-        return  $user->role === 1;
+        return  $user->role === 1 || $user->role === 100;
     }
 
     /**
@@ -41,7 +41,7 @@ class EventPolicy
      */
     public function create(User $user)
     {
-        return  $user->role === 1;
+        return  $user->role === 1 || $user->role === 100;
     }
 
     /**
@@ -53,7 +53,7 @@ class EventPolicy
      */
     public function update(User $user, Event $event)
     {
-        return  $user->role === 1 && $user->id == $event->user_id;
+        return  $user->role === 1 && $user->id == $event->user_id || $user->role === 100;
     }
 
     /**
@@ -65,7 +65,7 @@ class EventPolicy
      */
     public function delete(User $user, Event $event)
     {
-         return  $user->role === 1 && $user->id == $event->user_id;
+         return  $user->role === 1 && $user->id == $event->user_id || $user->role === 100;
     }
 
 

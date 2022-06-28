@@ -3,13 +3,13 @@
 
             <div class="card mb-1">
                 <div class="card-body">
-                    @if(isset(Auth::user()->id)&& Auth::user()->id == $comment->user_id)
+                    @can('delete', $comment)
                     <form method="POST" action="{{asset('comment/'.$comment->id)}}" class="d-flex justify-content-end">
                         @csrf
                         @method('delete')
                         <button class="btn btn-danger btn-sm"> Delete </button>
                     </form>
-                    @endif
+                    @endcan
                     <p>{{$comment->comment_text}}</p>
                     <div class="d-flex">
                             <img src="{{asset('images/profile/'.$comment->user->profile->image_path)}}" alt="avatar" width="25" height="25"/>

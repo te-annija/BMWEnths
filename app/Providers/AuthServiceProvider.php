@@ -21,6 +21,7 @@ class AuthServiceProvider extends ServiceProvider
         Profile::class => ProfilePolicy::class,
         Post::class => PostPolicy::class,
         Comment::class => CommentPolicy::class,
+        Event::class => EventPolicy::class,
 
     ];
 

@@ -11,15 +11,20 @@
 
                 <h4 class="text-light fw-bold mb-3 "> A CAR MOVES YOU. A BMW TOUCHES YOU.</h4>
                 <div class="d-flex justify-content-center">
-                <a href="/post/create" class="btn btn-outline-light btn-lg m-2"> Create a post </a>
-                @if (isset(Auth::user()->id)&& Auth::user()->id == $post->user_id)
-                    <a href="/post/{{$post->id}}/edit" class="btn btn-outline-success btn-lg m-2 ml-4"> Edit Post</a>
-                    <form action="/post/{{$post->id}}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <button class="btn btn-danger btn-lg m-2">Delete Post</button>
-                    </form>
-                @endif
+                    @can('create', App\Models\Post::class)
+                    <a href="/post/create" class="btn btn-outline-light btn-lg m-2"> Create a post </a>
+                    @endcan
+                    @can('update', $post)
+                        <a href="/post/{{$post->id}}/edit" class="btn btn-outline-success btn-lg m-2 ml-4"> Edit Post</a>
+                    @endcan
+                    @can('delete', $post)
+                        <form action="/post/{{$post->id}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-danger btn-lg m-2">Delete Post</button>
+                        </form>
+                    @endcan
+
                 </div>
             </div>
         </div>

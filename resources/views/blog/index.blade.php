@@ -10,7 +10,9 @@
                 </h4>
 
                 <h4 class="text-light fw-bold mb-3 "> A CAR MOVES YOU. A BMW TOUCHES YOU.</h4>
-                <a href="/post/create" class="btn btn-outline-light btn-lg m-2"> Create a post </a>
+                @can('create', App\Models\Post::class)
+                    <a href="/post/create" class="btn btn-outline-light btn-lg m-2"> Create a post </a>
+                @endcan
             </div>
         </div>
     </div>

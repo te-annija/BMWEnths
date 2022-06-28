@@ -30,6 +30,7 @@
 
     <div class="py-12 bg-light container ">
         <div class="p-6 m-6 bg-white border-b border-gray-200 container shadow">
+            @can('update', $post)
             <form action="/post/{{$post->id}}" method = "POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -40,8 +41,13 @@
                 <p class=""> <span class="w-100 fw-bold"> Description:</span> <textarea name="description"  rows="4"  required class="border-1 p-2 rounded w-100">{{ $post->description}} </textarea></p>
                 <p class="d-flex"> <span class="fw-bold m-2">Picture: </span> <input class="form-control" type="file" id="file" name="file"> </p>
                 <p> <input type="text" name="type" value="1" hidden></p>
+
                 <button type="submit" class="btn btn-outline-success btn-lg m-2"> Edit post </button>
+
             </div>
+            </form>
+            @endcan
+
         </div>
     </div>
 

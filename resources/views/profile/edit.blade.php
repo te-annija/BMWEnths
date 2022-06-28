@@ -51,7 +51,7 @@
                 <p> <span class="fw-bold">Year: </span> <input type="text" name="year" value="{{$profile->year}}" class="border-1 p-2 rounded "> </p>
                 <p> <span class="fw-bold">Engine: </span> <input type="text" name="engine" value="{{$profile->engine}}" class="border-1 p-2 rounded "> <span class="ml-3">m3</span></p>
                 <p> <span class="fw-bold">Power: </span> <input type="text" name="power" value="{{$profile->power}}" class="border-1 p-2 rounded "><span class="ml-3">kW</span></p>
-                <button type="submit" class="btn btn-outline-success btn-lg m-2"> Edit Profile</button>
+                <button type="submit" class="btn btn-outline-success btn-lg m-2"> Save </button>
             </form>
             </div>
 
@@ -64,14 +64,14 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
-                 @if (isset(Auth::user()->id)&& Auth::user()->id == $profile->user_id)
-                            <form action="/profile/{{$user->id}}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button class="btn btn-danger btn-lg m-2">Delete My Account</button>
-                            </form>
-                    @endif
+                @endif
+                 @can('delete', $profile)
+                    <form action="/profile/{{$user->id}}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-danger btn-lg m-2">Delete My Account</button>
+                    </form>
+                @endcan
                 </div>
             </div>
         </div>
