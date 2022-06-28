@@ -4,7 +4,7 @@
             <div class="card mb-1">
                 <div class="card-body">
                     @if(isset(Auth::user()->id)&& Auth::user()->id == $comment->user_id)
-                    <form method="POST" action="comment/{{$comment->id}}" class="d-flex justify-content-end">
+                    <form method="POST" action="{{asset('comment/'.$comment->id)}}" class="d-flex justify-content-end">
                         @csrf
                         @method('delete')
                         <button class="btn btn-danger btn-sm"> Delete </button>

@@ -21,8 +21,9 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'comment_text' => 'required|max:120',
+            'comment' => 'required|max:120',
         ]);
+
         $this->authorize('create', Comment::class);
         Comment::create([
             'comment_text' => $request->input('comment'),
