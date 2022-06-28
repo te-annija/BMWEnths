@@ -24,7 +24,7 @@
                     @guest
                     <li class="nav-item mb-2">
                         <a href="/" class="nav-link p-0 text-muted">
-                            Home
+                            Welcome
                         </a>
                     </li>
                     <li class="nav-item mb-2">
@@ -41,21 +41,21 @@
                     @auth
                     <li class="nav-item mb-2">
                         <a href="/" class="nav-link p-0 text-muted">
-                            Home
+                            Welcome
                         </a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a href="/" class="nav-link p-0 text-muted">
+                        <a href="/profile/{{auth()->user()->profile->id}}" class="nav-link p-0 text-muted">
+                            Profile
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="/post" class="nav-link p-0 text-muted">
                             Blog
                         </a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a href="/" class="nav-link p-0 text-muted">
-                            Q&A
-                        </a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="/" class="nav-link p-0 text-muted">
+                        <a href="/event" class="nav-link p-0 text-muted">
                             Events
                         </a>
                     </li>

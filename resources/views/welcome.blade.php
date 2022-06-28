@@ -73,9 +73,10 @@
                     <ul>
                         @foreach ($events as $event)
                             <li class="border-bottom border-top list-unstyled pt-2">
-                                <h5>{{$event->title}}</h5>
+                                <h5 class="fw-bold">{{$event->title}}</h5>
+                                <p class="fw-bold text-muted"> {{date('jS M Y', strtotime($event->date))}} </p>
                                 <p>{{$event->description}} </p>
-                                <p> {{$event->date}} </p>
+
                             </li>
                         @endforeach
 

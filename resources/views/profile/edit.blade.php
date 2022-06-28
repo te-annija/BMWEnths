@@ -26,14 +26,16 @@
             <form action="/profile/{{$profile->id}}" method = "POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <h3>Name: <input type="text" name="name" value="{{$user->name}}" class="border-1 p-2 rounded "></h3>
-                    <h5> Role:
-                            @if($user->role==1)
-                               admin
-                            @else
+                <h3>Name: <input type="text" name="name" value="{{$profile->user->name}}" class="border-1 p-2 rounded "></h3>
+                     <h5> Role:
+                            @if($profile->user->role==1)
+                               organizer
+                            @elseif($profile->user->role==0)
                                 user
+                            @elseif($profile->user->role==100)
+                                admin
                             @endif
-                            </h5>
+                    </h5>
                 <p class="inline-block d-flex"> <span class="fw-bold inline-block m-2">Description: </span> <textarea name="description"  rows="3" cols="40"  required class="border-1 p-2 rounded "> {{$profile->description}}</textarea> </p>
                 <p class="d-flex"> <span class="fw-bold m-2">Picture: </span> <input class="form-control" type="file" id="file" name="file"> </p>
 
@@ -66,7 +68,7 @@
                         </div>
                 @endif
                  @can('delete', $profile)
-                    <form action="/profile/{{$user->id}}" method="POST">
+                    <form action="/profile/{{$profile->id}}" method="POST">
                         @csrf
                         @method('delete')
                         <button class="btn btn-danger btn-lg m-2">Delete My Account</button>

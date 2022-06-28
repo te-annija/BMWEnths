@@ -51,7 +51,7 @@
         <div class="p-6 m-6 bg-white border-b border-gray-200 container shadow">
             <div class="row pl-3 m-3 border-bottom" >
                 <h2 class="pt-3 pl-3"> {{$event->title}}</h2>
-                <p class="text-muted">By <span class="fw-bold"> {{$event->user->name}} </span>, Created on {{date('jS M Y', strtotime($event->created_at))}}
+                <p class="text-muted">By <a href="/profile/{{$event->user->id}}" class="fw-bold text-decoration-none"> {{$event->user->name}} </a>, Created on {{date('jS M Y', strtotime($event->created_at))}}
                     @if($event->created_at != $event->updated_at)  , Edited on {{date('jS M Y', strtotime($event->updated_at))}}
                     @endif
                     </p>
@@ -85,8 +85,8 @@
 
 
             </div>
-            <div class="row p-6">
-                        <a href="/event/" class="btn btn-outline-dark btn-lg m-2" >Back To Events </a>
+            <div class="row p-1">
+                <a href="/event/" class="btn btn-outline-dark btn-lg" >Back To Events </a>
             </div>
         </div>
     </div>

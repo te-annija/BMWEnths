@@ -40,7 +40,7 @@
             <div class="p-6 m-6 bg-white border-b border-gray-200 container shadow">
                 <div class="row pl-3 m-3 border-bottom" >
                     <h2 class="pt-3 pl-3"> {{$post->title}}</h2>
-                    <p class="text-muted">By <span class="fw-bold"> {{$post->user->name}} </span>, Created on {{date('jS M Y', strtotime($post->updated_at))}}
+                    <p class="text-muted">By <a href="/profile/{{$post->user->id}}" class="fw-bold text-decoration-none"> {{$post->user->name}} </a> , Created on {{date('jS M Y', strtotime($post->updated_at))}}
                     @if($post->created_at != $post->updated_at)  , Edited on {{date('jS M Y', strtotime($post->updated_at))}}
                     @endif
                     </p>
@@ -104,10 +104,11 @@
                     @endif
 
                 </div>
-                <div class="row pr-3">
-                    <a href="/post/{{$post->id}}" class="btn btn-outline-dark btn-lg m-2" >Keep reading </a>
+                <div class="row p-1">
+                    <a href="/post/{{$post->id}}" class="btn btn-outline-dark btn-lg" >Keep reading </a>
                 </div>
             </div>
+
         </div>
     @endforeach
 

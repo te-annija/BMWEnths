@@ -37,7 +37,6 @@ class ProfilesController extends Controller
         {
            return view('profile.view')
             ->with('profile', Profile::where('id', $id)->first())
-            ->with('user', User::where('id', $profile->user_id)->first())
             ->with('posts', Post::where('user_id', $profile->id)->orderBy('updated_at', 'asc')->limit(2)->get());
         }
         else return redirect('/');
@@ -55,8 +54,7 @@ class ProfilesController extends Controller
         $profile = Profile::where('id', $id)->first();
         $this->authorize('update', $profile);
         return view('profile.edit')
-        ->with('profile', Profile::where('id', $id)->first())
-        ->with('user', User::where('id', $profile->user_id)->first());
+        ->with('profile', Profile::where('id', $id)->first());
     }
 
     /**

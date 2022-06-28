@@ -28,13 +28,13 @@
                             <p class="text-center fs-3 text-success">{{session()->get('message')}} </p>
                         </div>
                     @endif
-                <h2>{{$user->name}}</h2>
+                <h2>{{$profile->user->name}}</h2>
                     <h5> Role:
-                            @if($user->role==1)
+                            @if($profile->user->role==1)
                                organizer
-                            @elseif($user->role==0)
+                            @elseif($profile->user->role==0)
                                 user
-                            @elseif($user->role==100)
+                            @elseif($profile->user->role==100)
                                 admin
                             @endif
                     </h5>
