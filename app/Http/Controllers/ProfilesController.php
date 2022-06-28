@@ -109,8 +109,7 @@ class ProfilesController extends Controller
                 'power' => $request->input('power'),
                 'image_path' => $newImageName,
             ]);
-        return redirect('/profile/'.$id)
-        ->with('message', 'Your profile has been updated!');
+        return redirect('/profile/'.$id);
     }
 
     /**

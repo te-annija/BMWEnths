@@ -64,7 +64,7 @@ class EventsController extends Controller
             'location' => $request->input('location'),
             'user_id' => auth()->user()->id,
         ]);
-        return redirect('/event')->with('message', 'Your event has been added!');
+        return redirect('/event');
     }
 
     /**
@@ -137,7 +137,7 @@ class EventsController extends Controller
             'location' => $request->input('location'),
             'image_path' => $newImageName,
         ]);
-        return redirect('/event')->with('message', 'Your event has been updated!');
+        return redirect('/event');
     }
 
     /**

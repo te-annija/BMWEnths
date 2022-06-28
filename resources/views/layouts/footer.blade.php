@@ -7,56 +7,56 @@
                     <li class="nav-item mb-2">
                         <x-application-logo height="50" class="block w-auto p-1" />
                     </li>
-                    <li class="nav-item mb-2 text-center"> <h5>BMW Enthusiasts</h5></li>
+                    <li class="nav-item mb-2 text-center"> <h5>{{__('messages.app_name')}}</h5></li>
 
                     <li class="nav-item mb-2">
                         <p class="p-0 text-muted text-center ">
-                        Place to find like-minded friends and find out about our latest events.
+                        {{__('messages.app_description')}}
                         </p>
-                        <p class="p-0 text-muted text-center "> A CAR MOVES YOU. A BMW TOUCHES YOU.</p>
+                        <p class="p-0 text-muted text-center "> {{__('messages.app_slogan')}}</p>
                     </li>
                 </ul>
 
         </div>
             <div class="col-sm">
                 <ul class="navbar flex-column list-unstyled">
-                    <li class="nav-item mb-2 text-center"> <h5 >Pages</h5></li>
+                    <li class="nav-item mb-2 text-center"> <h5 >{{__('messages.pages')}}</h5></li>
                     @guest
                     <li class="nav-item mb-2">
                         <a href="/" class="nav-link p-0 text-muted">
-                            Welcome
+                            {{__('messages.welcome')}}
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="/login" class="nav-link p-0 text-muted">
-                            Login
+                            {{__('messages.login')}}
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="/register" class="nav-link p-0 text-muted">
-                            Register
+                            {{__('messages.register')}}
                         </a>
                     </li>
                     @endguest
                     @auth
                     <li class="nav-item mb-2">
                         <a href="/" class="nav-link p-0 text-muted">
-                            Welcome
+                            {{__('messages.welcome')}}
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="/profile/{{auth()->user()->profile->id}}" class="nav-link p-0 text-muted">
-                            Profile
+                            {{__('messages.profile')}}
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="/post" class="nav-link p-0 text-muted">
-                            Blog
+                            {{__('messages.blog')}}
                         </a>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="/event" class="nav-link p-0 text-muted">
-                            Events
+                            {{__('messages.events')}}
                         </a>
                     </li>
                     @endauth
@@ -65,15 +65,15 @@
 
             <div class="col-sm">
                 <ul class="navbar flex-column list-unstyled">
-                    <li class="nav-item mb-2 text-center"> <h5 >Find us</h5></li>
+                    <li class="nav-item mb-2 text-center"> <h5 >{{__('messages.find_us')}}</h5></li>
                     <li class="nav-item mb-2">
                         <p class="p-0 text-muted">
-                            Address: Raiņa bulvāris 19, Rīga, LV-1586
+                            {{__('messages.address')}}: Raiņa bulvāris 19, Rīga, LV-1586
                         </p>
                     </li>
                     <li class="nav-item mb-2">
                             <p class="p-0 text-muted">
-                            Phone: +371 22220000
+                            {{__('messages.phone')}}: +371 22220000
                             </p>
                     </li>
                 </ul>

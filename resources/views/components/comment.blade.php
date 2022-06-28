@@ -7,7 +7,7 @@
                     <form method="POST" action="{{asset('comment/'.$comment->id)}}" class="d-flex justify-content-end">
                         @csrf
                         @method('delete')
-                        <button class="btn btn-danger btn-sm"> Delete </button>
+                        <button class="btn btn-danger btn-sm"> {{__('messages.delete')}} </button>
                     </form>
                     @endcan
                     <p>{{$comment->comment_text}}</p>

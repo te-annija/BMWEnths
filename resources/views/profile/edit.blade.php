@@ -21,39 +21,39 @@
 
             <div class="col-md-8 p-5 container-fluid d-flex justify-content-between">
                 <div>
-                    <h2>Edit profile</h2>
+                    <h2>{{__('messages.edit_profile')}}</h2>
 
             <form action="/profile/{{$profile->id}}" method = "POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <h3>Name: <input type="text" name="name" value="{{$profile->user->name}}" class="border-1 p-2 rounded "></h3>
-                     <h5> Role:
+                <h3>{{__('messages.name')}}: <input type="text" name="name" value="{{$profile->user->name}}" class="border-1 p-2 rounded "></h3>
+                     <h5> {{__('messages.role')}}:
                             @if($profile->user->role==1)
-                               organizer
+                              {{__('messages.organizer')}}
                             @elseif($profile->user->role==0)
-                                user
+                                {{__('messages.user')}}
                             @elseif($profile->user->role==100)
-                                admin
+                                {{__('messages.admin')}}
                             @endif
                     </h5>
-                <p class="inline-block d-flex"> <span class="fw-bold inline-block m-2">Description: </span> <textarea name="description"  rows="3" cols="40"  required class="border-1 p-2 rounded "> {{$profile->description}}</textarea> </p>
-                <p class="d-flex"> <span class="fw-bold m-2">Picture: </span> <input class="form-control" type="file" id="file" name="file"> </p>
+                <p class="inline-block d-flex"> <span class="fw-bold inline-block m-2">{{__('messages.description')}}: </span> <textarea name="description"  rows="3" cols="40"  required class="border-1 p-2 rounded "> {{$profile->description}}</textarea> </p>
+                <p class="d-flex"> <span class="fw-bold m-2">{{__('messages.picture')}}: </span> <input class="form-control" type="file" id="file" name="file"> </p>
 
-                <h2 class="pt-3 mt-1 border-top">  Car specs </h2>
-                <p> <span class="fw-bold">Model: </span> <input type="text" name="model" value="{{$profile->BMW_model}}" class="border-1 p-2 rounded "> </p>
-                <p class="d-flex"> <span class="fw-bold ">Type: </span>
+                <h2 class="pt-3 mt-1 border-top">  {{__('messages.car_specs')}} </h2>
+                <p> <span class="fw-bold">{{__('messages.model')}}: </span> <input type="text" name="model" value="{{$profile->BMW_model}}" class="border-1 p-2 rounded "> </p>
+                <p class="d-flex"> <span class="fw-bold ">{{__('messages.type')}}: </span>
                 <select class="form-select" id="type" name="type" class="m-2">
-                    @php ($types = ["Hatchback", "Sedan", "MUV/SUV","Coupe","Convertible","Jeep"])
+                    @php ($types = [__('messages.hatchback'), __('messages.sedan'), __('messages.suv'),__('messages.coupe'),__('messages.convertible'),__('messages.jeep')])
                     <option> </option>
                     @foreach ($types as $type)
                         <option value="{{$type}}" @if( $type == $profile->body_type) selected @endif>{{$type}}</option>
                     @endforeach
                 </select>
                 </p>
-                <p> <span class="fw-bold">Year: </span> <input type="text" name="year" value="{{$profile->year}}" class="border-1 p-2 rounded "> </p>
-                <p> <span class="fw-bold">Engine: </span> <input type="text" name="engine" value="{{$profile->engine}}" class="border-1 p-2 rounded "> <span class="ml-3">m3</span></p>
-                <p> <span class="fw-bold">Power: </span> <input type="text" name="power" value="{{$profile->power}}" class="border-1 p-2 rounded "><span class="ml-3">kW</span></p>
-                <button type="submit" class="btn btn-outline-success btn-lg m-2"> Save </button>
+                <p> <span class="fw-bold">{{__('messages.year')}}: </span> <input type="text" name="year" value="{{$profile->year}}" class="border-1 p-2 rounded "> </p>
+                <p> <span class="fw-bold">{{__('messages.engine')}}: </span> <input type="text" name="engine" value="{{$profile->engine}}" class="border-1 p-2 rounded "> <span class="ml-3">m3</span></p>
+                <p> <span class="fw-bold">{{__('messages.power')}}: </span> <input type="text" name="power" value="{{$profile->power}}" class="border-1 p-2 rounded "><span class="ml-3">kW</span></p>
+                <button type="submit" class="btn btn-outline-success btn-lg m-2"> {{__('messages.save')}} </button>
             </form>
             </div>
 
@@ -71,7 +71,7 @@
                     <form action="/profile/{{$profile->id}}" method="POST">
                         @csrf
                         @method('delete')
-                        <button class="btn btn-danger btn-lg m-2">Delete My Account</button>
+                        <button class="btn btn-danger btn-lg m-2">{{__('messages.delete_my_account')}}</button>
                     </form>
                 @endcan
                 </div>

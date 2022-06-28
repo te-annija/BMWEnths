@@ -66,7 +66,7 @@ class PostsController extends Controller
             'user_id' => auth()->user()->id,
             'type' => $request->input('type'),
         ]);
-        return redirect('/post')->with('message', 'Your post has been added!');
+        return redirect('/post');
     }
 
     /**
@@ -134,7 +134,7 @@ class PostsController extends Controller
             'description' => $request->input('description'),
             'file_path' => $newImageName,
         ]);
-        return redirect('/post/'.$id)->with('message', 'Your post has been updated!');
+        return redirect('/post/'.$id);
     }
 
     /**

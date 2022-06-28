@@ -14,10 +14,10 @@
                     <ul class="navbar-nav me-auto">
                         @auth
                             <li class="nav-item">
-                                 <a class="nav-link" href="{{ action([App\Http\Controllers\PostsController::class, 'index'])}}">{{ __('Blog') }}</a>
+                                 <a class="nav-link" href="{{ action([App\Http\Controllers\PostsController::class, 'index'])}}">{{ __('messages.blog') }}</a>
                             </li>
                             <li class="nav-item">
-                                 <a class="nav-link" href="{{ action([App\Http\Controllers\EventsController::class, 'index'])}}">{{ __('Events') }}</a>
+                                 <a class="nav-link" href="{{ action([App\Http\Controllers\EventsController::class, 'index'])}}">{{ __('messages.events') }}</a>
                             </li>
 
                         @endauth
@@ -30,13 +30,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('messages.register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -46,15 +46,15 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ action([App\Http\Controllers\ProfilesController::class, 'show'], Auth::user()->id) }}">{{ __('Profile') }}</a>
+                                    <a class="dropdown-item" href="{{ action([App\Http\Controllers\ProfilesController::class, 'show'], Auth::user()->id) }}">{{ __('messages.profile') }}</a>
                                     @can('viewBlocked', App\Models\Profile::class)
-                                        <a class="dropdown-item" href="{{ action([App\Http\Controllers\AdminController::class, 'index'])}}">{{ __('Blocked Users') }}</a>
+                                        <a class="dropdown-item" href="{{ action([App\Http\Controllers\AdminController::class, 'index'])}}">{{ __('messages.blocked_users') }}</a>
                                     @endcan
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('messages.logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -63,6 +63,8 @@
                                 </div>
                             </li>
                         @endguest
+                        <a class="nav-link" href="language/lv"> LV </a>
+                        <a class="nav-link" href="language/en"> EN </a>
                     </ul>
                 </div>
             </div>

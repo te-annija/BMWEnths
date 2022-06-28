@@ -4,12 +4,9 @@
         <div class="bg-dark text-light w-100 h-100 d-flex align-items-center justify-content-center" >
 
             <div class="text-center my-5 py-5 box">
-                <h1 class="text-light fw-bold mb-3">Blog posts</h1>
-                <h4 class="text-light p-0 text-center ">
-                    Place to find like-minded friends.
-                </h4>
-
-                <h4 class="text-light fw-bold mb-3 "> A CAR MOVES YOU. A BMW TOUCHES YOU.</h4>
+                <h1 class="text-light fw-bold mb-3">{{__('messages.blog')}}</h1>
+                <h4 class="text-light p-0 text-center ">{{__('messages.blog_slogan')}} </h4>
+                <h4 class="text-light fw-bold mb-3 "> {{__('messages.app_slogan')}}</h4>
             </div>
         </div>
     </div>
@@ -35,15 +32,14 @@
                 @csrf
                 @method('PUT')
             <div class="row pl-3 m-3 border-bottom" >
-                <h2 class="pt-3 pl-3"> Title: <input type="text" name="title" class="border-1 p-2 rounded " value="{{ $post->title }}"></h2>
+                <h2 class="pt-3 pl-3"> {{__('messages.title')}}: <input type="text" name="title" class="border-1 p-2 rounded " value="{{ $post->title }}"></h2>
             </div>
             <div class="row py-3 m-3 d-flex justify-content-center ">
-                <p class=""> <span class="w-100 fw-bold"> Description:</span> <textarea name="description"  rows="4"  required class="border-1 p-2 rounded w-100">{{ $post->description}} </textarea></p>
-                <p class="d-flex"> <span class="fw-bold m-2">Picture: </span> <input class="form-control" type="file" id="file" name="file"> </p>
+                <p class=""> <span class="w-100 fw-bold"> {{__('messages.description')}}:</span> <textarea name="description"  rows="4"  required class="border-1 p-2 rounded w-100">{{ $post->description}} </textarea></p>
+                <p class="d-flex"> <span class="fw-bold m-2">{{__('messages.picture')}}: </span> <input class="form-control" type="file" id="file" name="file"> </p>
                 <p> <input type="text" name="type" value="1" hidden></p>
 
-                <button type="submit" class="btn btn-outline-success btn-lg m-2"> Edit post </button>
-
+                <button type="submit" class="btn btn-outline-success btn-lg m-2"> {{__('messages.save')}} </button>
             </div>
             </form>
             @endcan

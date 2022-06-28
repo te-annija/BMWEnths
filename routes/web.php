@@ -41,3 +41,9 @@ Route::group(['middleware'=> ['auth', 'active_user']],function () {
     Route::get('/blocked', [App\Http\Controllers\AdminController::class, 'index']);
 
 });
+
+Route::get('language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
