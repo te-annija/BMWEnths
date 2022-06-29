@@ -47,7 +47,7 @@ return [
     'add_event' => 'Add Event',
     'edit_event' => 'Edit Event',
     'delete_event' => 'Delete Event',
-    'create_event' => 'Comments',
+    'create_event' => 'Create Event',
     'event_ended' => 'Event has ended!',
     'stats' => 'Stats',
     'suc_reg' => 'Successfully registered',
@@ -94,4 +94,7 @@ return [
                     most of all, have fun.',
     'peek' => 'Have a peek in one of our meetings',
     'upcom' => 'Upcoming events',
+    'search' => 'Search',
+    'searchmod' => 'Search a BMW car model',
+    'owns' => 'owns',
 ];

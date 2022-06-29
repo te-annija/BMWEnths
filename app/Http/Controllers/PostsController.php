@@ -57,7 +57,7 @@ class PostsController extends Controller
             $newImageName = uniqid() . '-' . $request->title . '.' . $request->file->extension();
             $request->file->move(public_path('images/blog'), $newImageName);
         }
-        else $newImageName = "";
+        else $newImageName = NULL;
 
         Post::create([
             'title' => $request->input('title'),
@@ -152,5 +152,19 @@ class PostsController extends Controller
         $post->delete();
 
         return redirect('/post');
+    }
+
+    // AJAX view
+    public function showSearch()
+    {
+        return view('blog.search')
+            ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
+    }
+
+    // AJAX search
+    public function search(Request $request)
+    {
+        return Post::join('users', 'users.id', '=', 'posts.user_id')->join('profiles', 'users.id', '=', 'profiles.user_id')->where('BMW_model', 'LIKE', '%' . $request->get('search') . '%')
+            ->orWhere('posts.title', 'LIKE', '%' . $request->get('search') . '%')->get();
     }
 }

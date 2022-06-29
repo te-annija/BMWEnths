@@ -33,10 +33,7 @@
             <div class="p-6 m-6 bg-white border-b border-gray-200 container shadow">
                 <div class="row pl-3 m-3 border-bottom" >
                     <h2 class="pt-3 pl-3"> {{$post->title}}</h2>
-                    <p class="text-muted">{{__('messages.by')}} <a href="/profile/{{$post->user->id}}" class="fw-bold text-decoration-none"> {{$post->user->name}} </a> , {{__('messages.created_on')}} {{date('jS M Y', strtotime($post->created_at))}}
-                    @if($post->created_at != $post->updated_at)  , {{__('messages.edited_on')}} {{date('jS M Y', strtotime($post->updated_at))}}
-                    @endif
-                    </p>
+                    <p class="text-muted">By <span class="fw-bold"> {{$post->user->name}} </span>, Created on {{date('jS M Y', strtotime($post->updated_at))}} </p>
                 </div>
                 <div class="row py-3 m-3 d-flex justify-content-center ">
                     @if(isset($post->file_path))
@@ -54,7 +51,7 @@
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary" type="submit">{{__('messages.send')}}</button>
                                     </div>
-                                </div>
+                </div>
                             </form>
                             <p class="text-muted fw-bold m-2"> {{__('messages.comments')}}: </p>
                             @php $counter = 0; @endphp

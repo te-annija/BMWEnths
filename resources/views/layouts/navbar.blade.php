@@ -19,6 +19,9 @@
                             <li class="nav-item">
                                  <a class="nav-link" href="{{ action([App\Http\Controllers\EventsController::class, 'index'])}}">{{ __('messages.events') }}</a>
                             </li>
+                            <li class="nav-item">
+                                 <a class="nav-link" href="{{ action([App\Http\Controllers\PostsController::class, 'showSearch'])}}">{{ __('messages.search') }}</a>
+                            </li>
 
                         @endauth
 
@@ -63,8 +66,8 @@
                                 </div>
                             </li>
                         @endguest
-                        <a class="nav-link" href="language/lv"> LV </a>
-                        <a class="nav-link" href="language/en"> EN </a>
+                        <a class="nav-link" href="/language/lv"> LV </a>
+                        <a class="nav-link" href="/language/en"> EN </a>
                     </ul>
                 </div>
             </div>

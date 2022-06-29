@@ -42,7 +42,7 @@ return [
     'add_event' => 'Izveidot pasākumu',
     'edit_event' => 'Rediģēt pasākumu',
     'delete_event' => 'Dzēst pasākumu',
-    'create_event' => 'Komentāri',
+    'create_event' => 'Izveidot pasākumu',
     'event_ended' => 'Pasākums beidzies!',
     'stats' => 'Statistika',
     'suc_reg' => 'Veiksmīgi reģistrēts',
@@ -89,4 +89,7 @@ return [
 
     'peek' => 'Ielūkojies vienā no mūsu pasākumiem',
     'upcom' => 'Gaidāmie notikumi',
+    'search' => 'Meklēšana',
+    'searchmod' => 'Meklēt BMW modeli',
+    'owns' => 'pieder',
 ];
