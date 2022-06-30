@@ -5,7 +5,11 @@ use App\Http\Controllers\EventsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfilesController;
 use App\Models\Event;
+use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,8 +29,27 @@ Route::get('/', function () {
 
 
 Auth::routes();
+Route::get('/email/verify', function () {
+    return view('auth.verify');
+})->middleware('auth')->name('verification.notice');
 
-Route::group(['middleware'=> ['auth', 'active_user']],function () {
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect('/profile/{id}/edit');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('email/resend', function(Request $request){
+    $request->user()->sendEmailVerificationNotification();
+    return back()->with('message', 'Verification link sent!');
+})->name('verification.resend');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::group(['middleware'=> ['auth', 'active_user', 'verified']],function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::resource('profile', ProfilesController::class, ['except' => ['index','create', 'store']]);

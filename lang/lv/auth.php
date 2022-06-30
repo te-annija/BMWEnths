@@ -17,9 +17,9 @@ return [
     'throttle' => 'Pārāk daudz pieteikšanās mēģinājumu. Lūdzu mēģiniet vēlreiz pēc :seconds sekundēm.',
     'email_address' => 'E-pasta adrese',
     'remember_me' => 'Atcerēties mani',
-    'verify' => 'Apstiprināt savu e-pasta adresi',
+    'verify' => 'Apstipriniet savu e-pasta adresi',
     'verify_link' => 'Jauna apstiprināšanas saite ir nosūtīta uz jūsu e-pastu',
-    'before_proceeding' => 'Pirms turpiniet, lūdzu pārbaudiet e-pastu ar apstiprināšanas saiti.',
+    'before_proceeding' => 'Pirms turpiniet, lūdzu pārbaudiet e-pasta ziņojumos apstirpināšanas saiti.',
     'not_receive_email' => 'Ja nesaņēmāt e-pastu',
     'click_here' => 'spiediet šeit, lai saņemtu jaunu'
 ];
