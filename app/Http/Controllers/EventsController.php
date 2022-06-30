@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 
 class EventsController extends Controller
 {
@@ -18,6 +20,15 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function sendMail(Event $event)
+    {
+        $users = User::all();
+        foreach ($users as $key => $user) {
+            Mail::to($user->email)->send(new \App\Mail\eventMail($user, $event));
+        }
+        return redirect('/');
+    }
+
     public function index()
     {
         $this->authorize('viewAny', Event::class);
@@ -64,7 +75,11 @@ class EventsController extends Controller
             'location' => $request->input('location'),
             'user_id' => auth()->user()->id,
         ]);
+        $event = Event::orderBy('created_at', 'desc')->first();
+        $this->sendMail($event);
         return redirect('/event');
+
+
     }
 
     /**

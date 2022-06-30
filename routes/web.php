@@ -75,3 +75,4 @@ Route::get('/language/{locale}', function ($locale) {
     session()->put('locale', $locale);
     return redirect()->back();
 });
+
