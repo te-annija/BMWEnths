@@ -4,9 +4,9 @@
         <div class="bg-dark text-light w-100 h-100 d-flex align-items-center justify-content-center" >
 
             <div class="text-center my-5 py-5 box">
-                <h1 class="text-light fw-bold mb-3">{{__('messages.event')}}</h1>
+                <h1 class="text-light fw-bold mb-3">{{__('messages.events')}}</h1>
                 <h4 class="text-light p-0 text-center ">
-                   {{__('messages.event_slogan')}}
+                   {{__('messages.events_slogan')}}
                 </h4>
 
                 <h4 class="text-light fw-bold mb-3 ">{{__('messages.app_slogan')}}</h4>
@@ -21,7 +21,7 @@
                     <form action="/event/{{$event->id}}" method="event">
                         @csrf
                         @method('delete')
-                        <button class="btn btn-danger btn-lg m-2">{{__('messages.delete_Event')}}</button>
+                        <button class="btn btn-danger btn-lg m-2">{{__('messages.delete_event')}}</button>
                     </form>
                 @endcan
                 </div>

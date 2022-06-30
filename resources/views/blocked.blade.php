@@ -8,7 +8,7 @@
                 <h4 class="text-light p-0 text-center ">
                     {{__('messages.app_description')}}
                 </h4>
-                <h4 class="text-light fw-bold mb-3 "> {{__('messages.app_slogan')}}.</h4>
+                <h4 class="text-light fw-bold mb-3 "> {{__('messages.app_slogan')}}</h4>
             </div>
         </div>
     </div>

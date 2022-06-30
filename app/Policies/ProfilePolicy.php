@@ -51,13 +51,17 @@ class ProfilePolicy
         return $user->id === $profile->user_id || $user->role === 100;
     }
 
-    public function block(User $user)
+    public function block(User $user, Profile $profile)
     {
-        return $user->role === 100;
+        return $user->role === 100 && $profile->user->role != 100;
     }
 
     public function viewBlocked(User $user)
     {
         return $user->role === 100 || $user->role === 1;
+    }
+    public function changeRole(User $user, Profile $profile)
+    {
+        return $user->role === 100 && $profile->user->role != 100;
     }
 }

@@ -164,11 +164,21 @@ class EventsController extends Controller
             'user_id' => auth()->user()->id,
             'event_id' => $id,
         ]);
+        $event=Event::where('id', $id)->first();
+
+        $event->update([
+            'registred' => $event->registred + 1,
+        ]);
         return redirect('/event');
     }
     public function notgoing($id)
     {
         DB::table('eventparticipation')->where('event_id', '=', $id)->where('user_id', '=',  auth()->user()->id)->delete();
+        $event = Event::where('id', $id)->first();
+        $event->update([
+            'registred' => $event->registred - 1,
+        ]);
         return redirect('/event');
     }
+
 }
