@@ -61,18 +61,18 @@
                 </div>
 
                 <div class="align-self-end d-flex">
-                    @can('block', App\Models\Profile::class)
-                     @if($profile->user->blocked_at == NULL)
-                        <form action="/profile/{{$profile->user->id}}/block" method = "POST" enctype="multipart/form-data">
-                             @csrf
-                            <button type="submit" class="btn btn-danger btn-lg m-2 ml-4"> {{__('messages.block')}} </button>
-                        </form>
-                    @else
-                        <form action="/profile/{{$profile->user->id}}/unblock" method = "POST" enctype="multipart/form-data">
-                             @csrf
-                            <button type="submit" class="btn btn-danger btn-lg m-2 ml-4"> {{__('messages.unblock')}} </button>
-                        </form>
-                    @endif
+                    @can('block', $profile)
+                        @if($profile->user->blocked_at == NULL)
+                            <form action="/profile/{{$profile->user->id}}/block" method = "POST" enctype="multipart/form-data">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-lg m-2 ml-4"> {{__('messages.block')}} </button>
+                            </form>
+                        @else
+                            <form action="/profile/{{$profile->user->id}}/unblock" method = "POST" enctype="multipart/form-data">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-lg m-2 ml-4"> {{__('messages.unblock')}} </button>
+                            </form>
+                        @endif
                     @endcan
 
                     @can('update', $profile)

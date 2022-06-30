@@ -51,7 +51,7 @@ class ProfileTableSeeder extends Seeder
             'engine' => '2494',
             'power' => '125', //kw
             'description' => 'e36 car lover',
-            'image_path' => 'admin_img.jpg',
+            'image_path' => 'admin_img.png',
             'user_id' => 4,
         ));
 

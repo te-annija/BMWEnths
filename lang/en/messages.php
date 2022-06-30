@@ -1,9 +1,5 @@
 <?php
-
 return [
-
-
-
     'app_name' => 'BMW Enthusiasts',
     'app_description' => 'Place to find like-minded friends and find out about our latest events.',
     'app_slogan' => 'A CAR MOVES YOU. A BMW TOUCHES YOU.',
@@ -51,6 +47,8 @@ return [
     'event_ended' => 'Event has ended!',
     'stats' => 'Stats',
     'suc_reg' => 'Successfully registered',
+    'date' => 'Date',
+    'going' => 'Going',
     'not_going' => 'Not Going',
     'registered' => 'Registered',
     'back_to_events' => 'Back to Events',

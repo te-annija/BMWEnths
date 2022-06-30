@@ -40,6 +40,7 @@ Route::group(['middleware'=> ['auth', 'active_user']],function () {
     Route::delete('/event/{id}/cancel', [App\Http\Controllers\EventsController::class, 'notgoing']);
     Route::resource('event', EventsController::class);
 
+    Route::post('/profile/{id}/role', [App\Http\Controllers\AdminController::class, 'changeRole']);
     Route::post('/profile/{id}/block', [App\Http\Controllers\AdminController::class, 'block']);
     Route::post('/profile/{id}/unblock', [App\Http\Controllers\AdminController::class, 'unblock']);
     Route::get('/blocked', [App\Http\Controllers\AdminController::class, 'index']);

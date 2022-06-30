@@ -12,9 +12,15 @@
 */
 
 return [
+    'password' => 'Parole',
+    'confirm_password' => 'Apstirpināt paroli',
     'reset'     => 'Jūsu parole ir atjaunināta!',
     'sent'      => 'Mēs nosūtījām paroles maiņas saiti uz jūsu e-pastu.',
     'throttled' => 'Lūdzu, uzgaidiet pirms atkārtotas mēģināšanas!',
     'token'     => 'Paroles nomaiņas talons ir nederīgs.',
     'user'      => 'Mēs nevaram atrast lietotāju ar tādu e-pasta adresi.',
+    'forgot' => 'Aizmirsāt paroli?',
+    'send_link' => 'Nosūtīt paroles maiņas saiti',
+    'please_confirm' => 'Lūdzu, pirms turpināt, apstipriniet paroli!',
+    'reset_password' => 'Atjaunināt paroli',
 ];

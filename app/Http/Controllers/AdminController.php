@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -37,6 +38,17 @@ class AdminController extends Controller
 
         $user->update([
             'blocked_at' => NULL,
+        ]);
+        return redirect(url()->previous());
+    }
+    public function changeRole($id, Request $request)
+    {
+        $profile = Profile::where('user_id', $id)->first();
+        $user = User::where('id', $id)->first();
+        $this->authorize('changeRole', $profile);
+ 
+        $user->update([
+            'role' => $request->input('role'),
         ]);
         return redirect(url()->previous());
     }
