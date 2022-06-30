@@ -60,13 +60,13 @@
                 <form action="/profile/{{$profile->user->id}}/role" method = "POST" enctype="multipart/form-data">
                     @csrf
                     @php ($roles = ['0'=>__('messages.user'), '1'=>__('messages.organizer'), '100'=>__('messages.admin')])
-                    <p class="d-flex"> <span class="fw-bold ">{{__('Nomainīt lietotāja lomu')}}: </span> </p>
+                    <p class="d-flex"> <span class="fw-bold ">{{__('messages.change_role')}}: </span> </p>
                         <select class="form-select" id="role" name="role" class="m-1">
                         @foreach ($roles as  $key => $role)
                             <option value="{{$key}}" @if( $key == $profile->user->role) selected @endif>{{$role}}</option>
                         @endforeach
                         </select>
-                        <button type="sumbit" class="btn btn-outline-success btn-lg m-2"> Mainīt </button>
+                        <button type="sumbit" class="btn btn-outline-success btn-lg m-2"> {{__('messages.change')}} </button>
                 </form>
             @endcan
 

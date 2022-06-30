@@ -94,4 +94,6 @@ return [
     'search' => 'Meklēšana',
     'searchmod' => 'Meklēt BMW modeli',
     'owns' => 'pieder',
+    'change_role' => 'Mainīt lietotāja lomu',
+    'change' => 'Mainīt',
 ];

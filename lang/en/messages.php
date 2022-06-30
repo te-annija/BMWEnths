@@ -95,4 +95,6 @@ return [
     'search' => 'Search',
     'searchmod' => 'Search a BMW car model',
     'owns' => 'owns',
+    'change_role' => 'Change User Role',
+    'change' => 'Change',
 ];
