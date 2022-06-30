@@ -33,6 +33,7 @@ class ProfileTableSeeder extends Seeder
             'year' => '2020',
             'engine' => '4395',
             'power' => '441', //kw
+            'image_path' => 'user1_img.jpg',
             'user_id' => 2,
         ));
         Profile::create(array(

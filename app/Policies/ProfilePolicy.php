@@ -48,7 +48,7 @@ class ProfilePolicy
      */
     public function delete(User $user, Profile $profile)
     {
-        return $user->id === $profile->user_id || $user->role === 100;
+        return ($user->id === $profile->user_id&& $user->role!=100) || ($user->role === 100&& $user->id !== $profile->user_id);
     }
 
     public function block(User $user, Profile $profile)

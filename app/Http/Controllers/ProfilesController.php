@@ -51,10 +51,10 @@ class ProfilesController extends Controller
      */
     public function edit($id)
     {
-        $profile = Profile::where('id', $id)->first();
+        $profile = Profile::where('user_id', $id)->first();
         $this->authorize('update', $profile);
         return view('profile.edit')
-        ->with('profile', Profile::where('id', $id)->first());
+        ->with('profile', Profile::where('user_id', $id)->first());
     }
 
     /**
@@ -135,5 +135,18 @@ class ProfilesController extends Controller
         } else {
             return redirect('/');
         }
+    }
+
+    public function removePic($id)
+    {
+        $profile = Profile::where('id', $id)->first();
+        $this->authorize('delete', $profile);
+
+        if ($profile->image_path != 'default_img.jpg') File::delete(public_path('images/profile/' . $profile->image_path));
+
+        $profile->update([
+            'image_path' => 'default_img.jpg',
+        ]);
+        return redirect('/profile/'.$id.'/edit');
     }
 }

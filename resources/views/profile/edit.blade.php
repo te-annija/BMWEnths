@@ -17,6 +17,15 @@
 
                     </div>
                 </div>
+                @can('delete', $profile)
+                @if($profile->image_path != 'default_img.jpg')
+                    <form action="/profile/{{$profile->id}}/remove" method="POST">
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-danger btn-lg m-2">{{__('messages.delete_picture')}}</button>
+                    </form>
+                @endif
+                @endcan
             </div>
 
             <div class="col-md-8 p-5 container-fluid d-flex justify-content-between">
@@ -53,7 +62,10 @@
                 <p> <span class="fw-bold">{{__('messages.year')}}: </span> <input type="text" name="year" value="{{$profile->year}}" class="border-1 p-2 rounded "> </p>
                 <p> <span class="fw-bold">{{__('messages.engine')}}: </span> <input type="text" name="engine" value="{{$profile->engine}}" class="border-1 p-2 rounded "> <span class="ml-3">m3</span></p>
                 <p> <span class="fw-bold">{{__('messages.power')}}: </span> <input type="text" name="power" value="{{$profile->power}}" class="border-1 p-2 rounded "><span class="ml-3">kW</span></p>
-                <button type="submit" class="btn btn-outline-success btn-lg m-2"> {{__('messages.save')}} </button>
+                <div class="d-flex">
+                    <button type="submit" class="btn btn-outline-success btn-lg m-2"> {{__('messages.save')}} </button>
+                    <button href="/profile/{{$profile->user->id}}" class="btn btn-outline-light ntn-lg m-2">  {{__('messages.cancel')}}  </button>
+                </div>
             </form>
             </div>
             @can('changeRole', $profile)

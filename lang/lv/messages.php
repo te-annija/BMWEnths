@@ -96,4 +96,6 @@ return [
     'owns' => 'pieder',
     'change_role' => 'Mainīt lietotāja lomu',
     'change' => 'Mainīt',
+    'cancel' => 'Atcelt',
+    'delete_picture' => 'Izdzēst bildi', 
 ];

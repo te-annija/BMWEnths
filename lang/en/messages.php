@@ -97,4 +97,6 @@ return [
     'owns' => 'owns',
     'change_role' => 'Change User Role',
     'change' => 'Change',
+    'cancel' => 'Cancel',
+    'delete_picture' => 'Delete picture', 
 ];

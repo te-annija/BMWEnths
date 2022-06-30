@@ -35,7 +35,8 @@ Route::get('/email/verify', function () {
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
-    return redirect('/profile/{id}/edit');
+    $id = Auth::user()->id;
+    return redirect('/profile/'.$id.'/edit');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('email/resend', function(Request $request){
@@ -52,10 +53,11 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::group(['middleware'=> ['auth', 'active_user', 'verified']],function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+    Route::delete('/profile/{id}/remove', [ProfilesController::class, 'removePic']);
     Route::resource('profile', ProfilesController::class, ['except' => ['index','create', 'store']]);
 
-    Route::get('post/search', [PostsController::class, 'showSearch']);
-    Route::post('post/search', [PostsController::class, 'search']);
+    Route::get('/post/search', [PostsController::class, 'showSearch']);
+    Route::post('/post/search', [PostsController::class, 'search']);
     Route::resource('post', PostsController::class);
     Route::resource('comment', CommentsController::class, ['only' => ['store', 'destroy']]);
 
