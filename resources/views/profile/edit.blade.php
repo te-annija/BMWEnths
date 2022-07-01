@@ -64,9 +64,9 @@
                 <p> <span class="fw-bold">{{__('messages.power')}}: </span> <input type="text" name="power" value="{{$profile->power}}" class="border-1 p-2 rounded "><span class="ml-3">kW</span></p>
                 <div class="d-flex">
                     <button type="submit" class="btn btn-outline-success btn-lg m-2"> {{__('messages.save')}} </button>
-                    <button href="/profile/{{$profile->user->id}}" class="btn btn-outline-light ntn-lg m-2">  {{__('messages.cancel')}}  </button>
                 </div>
             </form>
+            <a href="/profile/{{$profile->user->id}}" class="btn btn-outline-light ntn-lg m-2">  {{__('messages.cancel')}}  </a>
             </div>
             @can('changeRole', $profile)
                 <form action="/profile/{{$profile->user->id}}/role" method = "POST" enctype="multipart/form-data">
